@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/Houdini.css">
+    <title>Houdini</title>
+
+</head>
+<body>
+
+    <h1>Olá, viajante!</h1>
+    <h2>Vamos jogar um jogo...</h2>
+    <h3>Pensa num número entre <span id ="minNum"></span> e <span id="maxNum"></span></h3>
+    <h3>Eu acho que o numero que pensaste foi: <span id="numero"></span></h3>
+    <button onclick="logica()">Quero saber qual é!</button>
+    <hr>
+    <h3>O número é: </h3>
+    <button onclick="maior()">É maior!</button>
+    <button onclick="acertou()">É esse!</button>
+    <button onclick="menor()">É menor!</button>
+    <hr>
+    <h1 class="genio" id="genio"></h1>
+    <button onclick="retry()">Tentar de novo?</button>
+
+
+    <script>
+        var minNum = 10;
+        var maxNum = 40;
+    
+        document.getElementById("minNum").innerHTML = minNum;
+        document.getElementById("maxNum").innerHTML = maxNum;
+
+        var logica = function()
+        {
+            var tentativa = RandomNumber(minNum, maxNum); 
+            function RandomNumber(min, max){
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+            document.getElementById("numero").innerHTML = tentativa;
+        }
+
+        var maior = function()
+        {
+            document.getElementById("genio").innerHTML = "Carambolas, foi um pouco abaixo :(";
+        }
+
+        var menor = function()
+        {
+            document.getElementById("genio").innerHTML = "Carambolas, foi um pouco acima :(";
+        }
+
+        var acertou = function()
+        {
+            document.getElementById("genio").innerHTML = "SOU UM GÉNIO!!";
+        }
+
+        var retry = function()
+        {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
